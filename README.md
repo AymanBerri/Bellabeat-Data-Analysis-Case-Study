@@ -29,12 +29,12 @@ This case study will follow the data analysis process of asking key questions, p
 
 
 ## Deliverables
-- Summary of the business task
-- Description of all data sources used
-- Documentation of data cleaning and manipulation processes
-- Summary of analysis findings
-- Supporting visualizations
-- Recommendations for Bellabeat's marketing strategy
+- [Summary of the business task](docs/problem_statement.md)
+- [Description of all data sources used](docs/introduction.md)
+- [Documentation of data cleaning and manipulation processes](docs/approach.md)
+- [Summary of analysis findings](docs/findings.md)
+- [Supporting visualizations](visuals/charts/) (or provide links to specific charts)
+- [Recommendations for Bellabeat's marketing strategy](docs/recommendations.md)
 
 
 ## License
