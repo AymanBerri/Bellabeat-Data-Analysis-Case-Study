@@ -25,6 +25,7 @@ Feel free to reach out to me at [imaymanberri@gmail.com](mailto:imaymanberri@gma
 
 
 ## GitHub Structure
+```
 Bellabeat-Data-Analysis-Case-Study/
 ├── README.md
 ├── data/
@@ -46,3 +47,4 @@ Bellabeat-Data-Analysis-Case-Study/
 │   └── recommendations.md
 ├── LICENSE
 └── .gitignore
+```
