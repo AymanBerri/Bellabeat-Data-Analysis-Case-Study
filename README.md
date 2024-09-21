@@ -21,3 +21,28 @@ The goal of this case study is to analyze smart device usage data to understand 
 
 ## Contact
 Feel free to reach out to me at [imaymanberri@gmail.com](mailto:imaymanberri@gmail.com) or connect with me on [LinkedIn](https://www.linkedin.com/in/aberri).
+
+
+
+## GitHub Structure
+Bellabeat-Data-Analysis-Case-Study/
+├── README.md
+├── data/
+│   ├── raw/
+│   └── processed/
+├── notebooks/
+│   └── analysis.ipynb
+├── scripts/
+│   └── data_cleaning.py
+├── visuals/
+│   ├── charts/
+│   └── images/
+├── docs/
+│   ├── introduction.md
+│   ├── problem_statement.md
+│   ├── approach.md
+│   ├── analysis.md
+│   ├── findings.md
+│   └── recommendations.md
+├── LICENSE
+└── .gitignore
