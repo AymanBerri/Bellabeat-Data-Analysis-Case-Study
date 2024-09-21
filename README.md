@@ -29,7 +29,7 @@ This case study will follow the data analysis process of asking key questions, p
 
 
 ## Deliverables
-- [Summary of the business task](docs/problem_statement.md)
+- [Summary of the business task](docs/business_task.md)
 - [Description of all data sources used](docs/introduction.md)
 - [Documentation of data cleaning and manipulation processes](docs/approach.md)
 - [Summary of analysis findings](docs/findings.md)
