@@ -8,16 +8,6 @@ This project analyzes smart device usage data to gain insights into user behavio
 Bellabeat aims to expand its market presence by leveraging consumer data from smart devices to understand user behavior and identify growth opportunities.
 
 
-## Business Task
-1. **Analyze smart device usage data to uncover trends in user behavior regarding:**
-   - Activity levels
-   - Sleep patterns
-   - Stress management
-   - Hydration habits
-
-2. **Develop actionable recommendations to enhance Bellabeat's marketing strategies based on the insights gathered.**
-
-
 # Stakeholders
 - **Urška Sršen:** Cofounder and Chief Creative Officer seeking growth opportunities.
 - **Sando Mur:** Mathematician and key executive focused on data-driven strategies.
