@@ -20,4 +20,4 @@ Welcome to my comprehensive case study on analyzing Bellabeat's smart device dat
 The goal of this case study is to analyze smart device usage data to understand consumer behavior and provide actionable insights for Bellabeat's marketing strategy...
 
 ## Contact
-Feel free to reach out to me at [your.email@example.com](mailto:your.email@example.com) or connect with me on [LinkedIn](https://www.linkedin.com/in/yourprofile).
+Feel free to reach out to me at [imaymanberri@gmail.com](mailto:imaymanberri@gmail.com) or connect with me on [LinkedIn](https://www.linkedin.com/in/aberri).
