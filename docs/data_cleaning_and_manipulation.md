@@ -1,22 +1,31 @@
 ## Process
 
-### Data
-Based on the business task, i chose to work on select files:
- -dailyActivity_merged
-- sleepDay_merged
-- heartrate_seconds_merged
-- weightLogInfo_merged
-- dailyCalories_merged
-- dailyIntensities_merged
-- minuteSleep_merged
-- minuteMETsNarrow_merged
-- hourlySteps_merged
+### Data Selection
+Based on the business task, I selected specific files that provide relevant data for the analysis:
+
+<details>
+  <summary>Click to view selected CSV files</summary>
+
+  - `dailyActivity_merged`
+  - `sleepDay_merged`
+  - `heartrate_seconds_merged`
+  - `weightLogInfo_merged`
+  - `dailyCalories_merged`
+  - `dailyIntensities_merged`
+  - `minuteSleep_merged`
+  - `minuteMETsNarrow_merged`
+  - `hourlySteps_merged`
+  - `dailySteps_merged`
+
+</details>
 
 ### Data Importing
-for Data processing i chose to use Excel as the main tool. So i had to import all the files i need, but they were too many and
-it would require too much repetitive work. So i searched and learned about VBA Macros. With the help of ChatGPT I generated a script that i would run to load every file into a separate sheet in the workbook. Here is the code i ran:
+For data processing, I chose to use **Excel** as the main tool. Since manually importing each CSV file would be too repetitive, I utilized **VBA Macros** to automate the process. This allowed me to load each CSV file into a separate sheet in my workbook.
 
-```
+#### VBA Macro Code
+Here is the code I ran to automatically import all the necessary CSV files:
+
+```vba
 Sub ImportCSVIntoSeparateSheets()
     Dim folderPath As String
     Dim csvFile As String
@@ -45,8 +54,6 @@ Sub ImportCSVIntoSeparateSheets()
         csvFile = Dir
     Loop
 End Sub
-
-
 ```
 
 
