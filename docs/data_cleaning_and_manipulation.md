@@ -57,23 +57,17 @@ End Sub
 ```
 
 
-### Data Integrity Check
-- Loaded the dataset into [Tool Used] and performed an initial inspection for:
-  - Missing values
-  - Duplicates
-  - Inconsistent data types
+### Data Cleaning Steps
 
-### Chosen Tools
-- **[Tool Name]**: Selected for its ability to [reason for choice, e.g., perform data transformations efficiently, user-friendly interface, etc.].
+| Step                         | Description                                                                 |
+|------------------------------|-----------------------------------------------------------------------------|
+| **Checked for Missing Values** | I identified columns with missing data and decided to fill them with the mean where appropriate. |
+| **Checked for Duplicates**    | I searched for any duplicate entries in the dataset and removed them to ensure data integrity. |
+| **Corrected Data Types**      | I ensured that all columns were in the correct data type, converting any necessary columns to the appropriate format. |
+| **Standardized Values**       | I standardized categorical values to ensure consistency (e.g., "yes," "Yes," and "YES" were all converted to "Yes"). |
+| **Identified Outliers**       | I used statistical methods to identify outliers and decided to cap extreme values to maintain data quality. |
+| **Documented Changes**        | I kept a record of all changes made during the cleaning process for future reference. |
 
-### Data Transformation Steps
-1. **Removed Duplicates**: Identified and removed any duplicate entries.
-2. **Handled Missing Values**: 
-   - Imputed missing values in [Column Name] using [method used, e.g., mean, median, mode].
-   - Removed rows with excessive missing values.
-3. **Standardized Data Types**: Ensured all columns had the correct data types (e.g., converting date strings to date format).
-4. **Renamed Columns**: Updated column names for clarity (e.g., `calories_burned` to `Calories Burned`).
-5. **Created New Columns**: Added [any new columns created] for enhanced analysis.
 
 ### Documentation of Cleaning Process
 - All steps taken during the cleaning process have been recorded for review and sharing.
