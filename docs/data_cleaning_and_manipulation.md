@@ -110,10 +110,16 @@ End Sub
    Now i decided to trim the data to remove any leading or trailing whitespaces. and the way i do this is by using Excel's Find and Replace tool. But im faced with a problem here where in some sheets there is data that is seperated by white spaces instead of each having its own column. So what i did for Date columns that had the date and time in the same cell is split them by simply creating a new column by extracting the time from the Date column ```=TIME(HOUR(B2), MINUTE(B2), SECOND(B2))```, then using `=INT(A1)` to extract the date into a new column. After deleting the original column, i search again for whitespaces using the Find and Replace tool to check if the data is trimmed. Altered sheets:
      - `heartrate_seconds_merged` i split the column `Time` to `Date` and `Time`.
      - `hourlySteps_merged` i split the `ActivityHour` to `ActivityDate` for the date and `ActivityHour` for the hour.
-     - 
+     - `minuteMETsNarrow_merged` i split `ActivityMinute` to `ActivityDate` and `ActivityMinute`.
+     - `minuteSleep_merged` i split `date` to `Date` and `Time`.
+     - `sleepDay_merged` i split `SleepDay` to `SleepDay` and `SleepTime`
+     - `weightLogInfo_merged` i split `Date` to `Date` and `Time`.
+
 
 3) ## Corrected Data Types
    now comes where i ensure all columns are the correct data type and convert and necessary columns to the appropriate format.
+   All Date columns are formatted as `Date`
+   All Time columns are formatted as `Time`
    
 
 
