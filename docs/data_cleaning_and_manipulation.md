@@ -69,6 +69,12 @@ End Sub
 | **Documented Changes**        | I kept a record of all changes made during the cleaning process for future reference. |
 
 
+
+
+
+
+
+
 Steps i actually took:
 started by filtering and sorting data to check for null or blank fields, found none. With the help of ChatGPT, I generated a script that  checks for blank fields in the entire workbook so this is the script i ran:
 ```vba
@@ -96,6 +102,8 @@ End Sub
 ```
 Result:
 ![image](https://github.com/user-attachments/assets/7041d604-c80e-4eda-ad16-2d7091f7cb43)
+
+All blank records then were deleted.
 
 
 
