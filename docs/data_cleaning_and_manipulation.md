@@ -1,6 +1,23 @@
-## Process
+# Data Cleaning Process Summary
 
-### Data Selection
+
+## Overview
+This document outlines the steps taken during the data cleaning process for the dataset. Each section provides details of the methods used and results obtained.
+
+
+
+## Table of Contents
+- [Data Selection](#data-selection) 
+- [Data Importing](#data-importing)
+- [Check for Missing Values](#1-check-for-missing-values)
+- [Check for Duplicates](#2-check-for-duplicates)
+- [Trimming the Data](#3-trimming-the-data)
+- [Corrected Data Types](#4-corrected-data-types)
+- [Check for Outliers](#5-check-for-outliers)
+
+---
+
+## Data Selection
 Based on the business task, I selected specific files that provide relevant data for the analysis:
 
 <details>
@@ -19,7 +36,9 @@ Based on the business task, I selected specific files that provide relevant data
 
 </details>
 
-### Data Importing
+---
+
+## Data Importing
 For data processing, I chose to use **Excel** as the main tool. Since manually importing each CSV file would be too repetitive, I utilized **VBA Macros** to automate the process. This allowed me to load each CSV file into a separate sheet in my workbook.
 
 #### VBA Macro Code
@@ -57,24 +76,11 @@ End Sub
 ```
 
 
-### Data Cleaning Steps
+---
 
-| Step                         | Description                                                                 |
-|------------------------------|-----------------------------------------------------------------------------|
-| **Checked for Missing Values** | I identified columns with missing data and decided to fill them with the mean where appropriate. |
-| **Checked for Duplicates**    | I searched for any duplicate entries in the dataset and removed them to ensure data integrity. |
-| **Corrected Data Types**      | I ensured that all columns were in the correct data type, converting any necessary columns to the appropriate format. |
-| **Standardized Values**       | I standardized categorical values to ensure consistency (e.g., "yes," "Yes," and "YES" were all converted to "Yes"). |
-| **Identified Outliers**       | I used statistical methods to identify outliers and decided to cap extreme values to maintain data quality. |
-| **Documented Changes**        | I kept a record of all changes made during the cleaning process for future reference. |
+### 1. Check for Missing Values
+Started by filtering and sorting data to check for null or blank fields, found none. With the help of ChatGPT, I generated a script that checks for blank fields in the entire workbook.
 
-
-
-
-
-
-1) ## Check for missing values
-  started by filtering and sorting data to check for null or blank fields, found none. With the help of ChatGPT, I generated a script that  checks for blank fields in the entire workbook so this is the script i ran:
   ```vba
   Sub CheckForBlanks()
       Dim ws As Worksheet
@@ -98,33 +104,82 @@ End Sub
   End Sub
   
   ```
-  Result:
-  ![image](https://github.com/user-attachments/assets/7041d604-c80e-4eda-ad16-2d7091f7cb43)
-  
-  In the `weightLogInfo_merged` file, there is a column "Fat" that has only 2 values out of 65 values. The column was deleted.
 
-2) ## Check for duplicates
-  using excels Remove Duplicates tool, in `minutesleep_merged` 543 duplicates were removed and 187978 remained while in `sleepday_merged` 3 duplicates were removed and 410 unique values remained.
+**Result:**
+![image](https://github.com/user-attachments/assets/7041d604-c80e-4eda-ad16-2d7091f7cb43)
 
-3) ## Trimming the data
-   Now i decided to trim the data to remove any leading or trailing whitespaces. and the way i do this is by using Excel's Find and Replace tool. But im faced with a problem here where in some sheets there is data that is seperated by white spaces instead of each having its own column. So what i did for Date columns that had the date and time in the same cell is split them by simply creating a new column by extracting the time from the Date column ```=TIME(HOUR(B2), MINUTE(B2), SECOND(B2))```, then using `=INT(A1)` to extract the date into a new column. After deleting the original column, i search again for whitespaces using the Find and Replace tool to check if the data is trimmed. Altered sheets:
-     - `heartrate_seconds_merged` i split the column `Time` to `Date` and `Time`.
-     - `hourlySteps_merged` i split the `ActivityHour` to `ActivityDate` for the date and `ActivityHour` for the hour.
-     - `minuteMETsNarrow_merged` i split `ActivityMinute` to `ActivityDate` and `ActivityMinute`.
-     - `minuteSleep_merged` i split `date` to `Date` and `Time`.
-     - `sleepDay_merged` i split `SleepDay` to `SleepDay` and `SleepTime`
-     - `weightLogInfo_merged` i split `Date` to `Date` and `Time`.
+In the `weightLogInfo_merged` file, there was a column "Fat" that had only 2 values out of 65. The column was deleted.
 
+<details>
+<summary>Details on Missing Values</summary>
+- Checked all sheets for blank cells.
+- Found none, confirming data completeness.
+</details>
 
-3) ## Corrected Data Types
-   now comes where i ensure all columns are the correct data type and convert and necessary columns to the appropriate format.
-   All ID columns are formatted as `Number`
-   All Date columns are formatted as `Date`
-   All Time columns are formatted as `Time`
-   
+---
 
+### 2. Check for Duplicates
+Using Excel's Remove Duplicates tool:
+- In `minutesleep_merged`, 543 duplicates were removed, leaving 187,978 records.
+- In `sleepday_merged`, 3 duplicates were removed, resulting in 410 unique values.
 
+<details>
+<summary>Details on Duplicates</summary>
+- Each dataset was analyzed for exact duplicates.
+- Unique records were retained for further analysis.
+</details>
 
+---
+
+### 3. Trimming the Data
+I decided to trim the data to remove any leading or trailing whitespaces using Excel's Find and Replace tool. However, some sheets had data separated by white spaces instead of in their own columns. To address this:
+
+- For Date columns with both date and time in the same cell:
+  - Created a new column to extract the time.
+  - Extracted the date into a new column.
+
+After deleting the original column, I searched again for whitespaces to ensure data was trimmed. Altered sheets include:
+- `heartrate_seconds_merged`: Split `Time` into `Date` and `Time`.
+- `hourlySteps_merged`: Split `ActivityHour` into `ActivityDate` and `ActivityHour`.
+- `minuteMETsNarrow_merged`: Split `ActivityMinute` into `ActivityDate` and `ActivityMinute`.
+- `minuteSleep_merged`: Split `date` into `Date` and `Time`.
+- `sleepDay_merged`: Split `SleepDay` into `SleepDay` and `SleepTime`.
+- `weightLogInfo_merged`: Split `Date` into `Date` and `Time`.
+
+<details>
+<summary>Details on Trimming</summary>
+- Identified sheets with whitespace issues.
+- Ensured all data was clean and properly formatted.
+</details>
+
+---
+
+### 4. Corrected Data Types
+Ensured all columns are formatted correctly:
+- All ID columns are formatted as `Number`.
+- All Date columns are formatted as `Date`.
+- All Time columns are formatted as `Time`.
+
+<details>
+<summary>Details on Data Types</summary>
+- Verified data types for consistency and accuracy.
+</details>
+
+---
+
+### 5. Check for Outliers
+To check for outliers, I reviewed the data by selecting columns and visualizing them using box plots or sorting them from largest to smallest to locate extreme values. Notable outliers included:
+- 36,019 total steps
+- 4,100 calories
+- 294 pounds
+
+I decided to keep these values as outliers can be informative and relevant in health data.
+
+<details>
+<summary>Details on Outliers</summary>
+- Method used: Visual inspection and sorting.
+- Documented outlier values for further analysis.
+</details>
 
 ### Documentation of Cleaning Process
 - All steps taken during the cleaning process have been recorded for review and sharing.
