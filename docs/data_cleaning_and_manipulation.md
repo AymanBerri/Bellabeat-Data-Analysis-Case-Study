@@ -110,11 +110,7 @@ Started by filtering and sorting data to check for null or blank fields, found n
 
 In the `weightLogInfo_merged` file, there was a column "Fat" that had only 2 values out of 65. The column was deleted.
 
-<details>
-<summary>Details on Missing Values</summary>
-- Checked all sheets for blank cells.
-- Found none, confirming data completeness.
-</details>
+
 
 ---
 
@@ -123,11 +119,6 @@ Using Excel's Remove Duplicates tool:
 - In `minutesleep_merged`, 543 duplicates were removed, leaving 187,978 records.
 - In `sleepday_merged`, 3 duplicates were removed, resulting in 410 unique values.
 
-<details>
-<summary>Details on Duplicates</summary>
-- Each dataset was analyzed for exact duplicates.
-- Unique records were retained for further analysis.
-</details>
 
 ---
 
@@ -146,11 +137,6 @@ After deleting the original column, I searched again for whitespaces to ensure d
 - `sleepDay_merged`: Split `SleepDay` into `SleepDay` and `SleepTime`.
 - `weightLogInfo_merged`: Split `Date` into `Date` and `Time`.
 
-<details>
-<summary>Details on Trimming</summary>
-- Identified sheets with whitespace issues.
-- Ensured all data was clean and properly formatted.
-</details>
 
 ---
 
@@ -160,10 +146,6 @@ Ensured all columns are formatted correctly:
 - All Date columns are formatted as `Date`.
 - All Time columns are formatted as `Time`.
 
-<details>
-<summary>Details on Data Types</summary>
-- Verified data types for consistency and accuracy.
-</details>
 
 ---
 
@@ -175,15 +157,7 @@ To check for outliers, I reviewed the data by selecting columns and visualizing 
 
 I decided to keep these values as outliers can be informative and relevant in health data.
 
-<details>
-<summary>Details on Outliers</summary>
-- Method used: Visual inspection and sorting.
-- Documented outlier values for further analysis.
-</details>
 
-### Documentation of Cleaning Process
-- All steps taken during the cleaning process have been recorded for review and sharing.
-- Future analyses will rely on this clean dataset to ensure accurate insights.
 
 ---
 
