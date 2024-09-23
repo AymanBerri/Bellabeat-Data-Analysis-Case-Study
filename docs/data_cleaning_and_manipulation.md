@@ -69,6 +69,36 @@ End Sub
 | **Documented Changes**        | I kept a record of all changes made during the cleaning process for future reference. |
 
 
+Steps i actually took:
+started by filtering and sorting data to check for null or blank fields, found none. With the help of ChatGPT, I generated a script that  checks for blank fields in the entire workbook so this is the script i ran:
+```vba
+Sub CheckForBlanks()
+    Dim ws As Worksheet
+    Dim cell As Range
+    Dim blankCount As Long
+    Dim report As String
+
+    report = "Blank Cells Report:" & vbCrLf
+
+    For Each ws In ThisWorkbook.Worksheets
+        blankCount = 0
+        For Each cell In ws.UsedRange
+            If IsEmpty(cell) Then
+                blankCount = blankCount + 1
+            End If
+        Next cell
+        report = report & ws.Name & ": " & blankCount & " blank cells" & vbCrLf
+    Next ws
+
+    MsgBox report
+End Sub
+
+```
+Result:
+![image](https://github.com/user-attachments/assets/7041d604-c80e-4eda-ad16-2d7091f7cb43)
+
+
+
 ### Documentation of Cleaning Process
 - All steps taken during the cleaning process have been recorded for review and sharing.
 - Future analyses will rely on this clean dataset to ensure accurate insights.
