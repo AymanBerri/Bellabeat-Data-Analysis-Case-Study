@@ -73,37 +73,49 @@ End Sub
 
 
 
+1) ## Check for missing values
+  started by filtering and sorting data to check for null or blank fields, found none. With the help of ChatGPT, I generated a script that  checks for blank fields in the entire workbook so this is the script i ran:
+  ```vba
+  Sub CheckForBlanks()
+      Dim ws As Worksheet
+      Dim cell As Range
+      Dim blankCount As Long
+      Dim report As String
+  
+      report = "Blank Cells Report:" & vbCrLf
+  
+      For Each ws In ThisWorkbook.Worksheets
+          blankCount = 0
+          For Each cell In ws.UsedRange
+              If IsEmpty(cell) Then
+                  blankCount = blankCount + 1
+              End If
+          Next cell
+          report = report & ws.Name & ": " & blankCount & " blank cells" & vbCrLf
+      Next ws
+  
+      MsgBox report
+  End Sub
+  
+  ```
+  Result:
+  ![image](https://github.com/user-attachments/assets/7041d604-c80e-4eda-ad16-2d7091f7cb43)
+  
+  In the `weightLogInfo_merged` file, there is a column "Fat" that has only 2 values out of 65 values. The column was deleted.
 
+2) ## Check for duplicates
+  using excels Remove Duplicates tool, in `minutesleep_merged` 543 duplicates were removed and 187978 remained while in `sleepday_merged` 3 duplicates were removed and 410 unique values remained.
 
-Steps i actually took:
-started by filtering and sorting data to check for null or blank fields, found none. With the help of ChatGPT, I generated a script that  checks for blank fields in the entire workbook so this is the script i ran:
-```vba
-Sub CheckForBlanks()
-    Dim ws As Worksheet
-    Dim cell As Range
-    Dim blankCount As Long
-    Dim report As String
+3) Trimming the data
+   Now i decided to trim the data to remove any leading or trailing whitespaces. and the way i do this is by using Excel's Find and Replace tool. But im faced with a problem here where in some sheets there is data that is seperated by white spaces instead of each having its own column. So what i did for Date columns that had the date and time in the same cell is split them by simply creating a new column by extracting the time from the Date column ```=TIME(HOUR(B2), MINUTE(B2), SECOND(B2))```, then using `=INT(A1)` to extract the date into a new column. After deleting the original column, i search again for whitespaces using the Find and Replace tool to check if the data is trimmed. Altered sheets:
+     - `heartrate_seconds_merged` i split the column `Time` to `Date` and `Time`.
+     - `hourlySteps_merged` i split the `ActivityHour` to `ActivityDate` for the date and `ActivityHour` for the hour.
+     - 
 
-    report = "Blank Cells Report:" & vbCrLf
+3) ## Corrected Data Types
+   now comes where i ensure all columns are the correct data type and convert and necessary columns to the appropriate format.
+   
 
-    For Each ws In ThisWorkbook.Worksheets
-        blankCount = 0
-        For Each cell In ws.UsedRange
-            If IsEmpty(cell) Then
-                blankCount = blankCount + 1
-            End If
-        Next cell
-        report = report & ws.Name & ": " & blankCount & " blank cells" & vbCrLf
-    Next ws
-
-    MsgBox report
-End Sub
-
-```
-Result:
-![image](https://github.com/user-attachments/assets/7041d604-c80e-4eda-ad16-2d7091f7cb43)
-
-All blank records then were deleted.
 
 
 
